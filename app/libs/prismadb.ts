@@ -5,7 +5,7 @@ declare global {
 }
 
 const client = globalThis.prisma || new PrismaClient()
-if (process.env.NODE_ENV != 'production' ) globalThis.prisma = client
+if (process.env.NODE_ENV !== 'production' ) globalThis.prisma = client
 //if we are in development by chcking if we are not in production, we set this global prisma client to the newly created client
 
 //we write this code line because, next js hot reload give bunch of prisma client instances that give warnings in the terminal

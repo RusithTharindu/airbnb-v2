@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {Nunito} from "next/font/google"
-import Navbar from "@/components/navbar/Navbar";
-import ClientOnly from "@/components/ClientOnly";
-import Modal from "@/components/modals/Modal";
-import RegisterModal from "@/components/modals/RegisterModal";
-import ToasterProvider from "@/providers/ToasterProvider";
+import Navbar from "./components/navbar/Navbar";
+import ClientOnly from "./components/ClientOnly";
+import Modal from "./components/modals/Modal";
+import RegisterModal from "./components/modals/RegisterModal";
+import ToasterProvider from "./providers/ToasterProvider";
 
 const font = Nunito(
   {
