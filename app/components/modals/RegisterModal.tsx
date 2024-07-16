@@ -55,7 +55,7 @@ const RegisterModal = () => {
         <div className='flex flex-col gap-4'>
             <Heading 
                 title='Welcome to Airbnb'
-                subTitle='Create an Account'
+                subTitle='Create an Account'    
             />
             <Input 
                 id='email'
