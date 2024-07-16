@@ -20,10 +20,12 @@ import Heading from '../Heading';
 import Input from '../inputs/input';
 import toast from 'react-hot-toast';
 import Button from '../Button'
+import { useRouter } from 'next/navigation';
 
 
 
 const LoginModal = () => {
+    const router = useRouter();
     const registerModal = useRegisterModal();
     const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
@@ -44,15 +46,21 @@ const LoginModal = () => {
     const onSubmit:SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
-        axios.post('/api/register', data)
-        .then(() => {
-            registerModal.onClose();
-        })
-        .catch((error) => {
-            toast.error('Something Went Wrong');
-        })
-        .finally(() => {
+        signIn('credentials', {
+            ...data,
+            redirect: false,
+        }).then((callback) => {
             setIsLoading(false);
+
+            if(callback?.ok){
+                toast.success('Logged In');
+                router.refresh();
+                loginModal.onClose();
+            }
+            
+            if(callback?.error){
+                toast.error(callback.error);
+            }
         })
     }
 
@@ -69,6 +77,7 @@ const LoginModal = () => {
                 disabled={isLoading}
                 register={register}
                 errors={errors}
+                type='email'
             />
             <Input 
                 id='password'
@@ -77,6 +86,7 @@ const LoginModal = () => {
                 disabled={isLoading}
                 register={register}
                 errors={errors}
+                type='password'
             />
         </div>
     )

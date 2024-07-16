@@ -64,6 +64,7 @@ const RegisterModal = () => {
                 disabled={isLoading}
                 register={register}
                 errors={errors}
+                type='email'
             />
             <Input 
                 id='name'
@@ -80,6 +81,7 @@ const RegisterModal = () => {
                 disabled={isLoading}
                 register={register}
                 errors={errors}
+                type='password'
             />
         </div>
     )
