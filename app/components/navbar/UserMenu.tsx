@@ -34,7 +34,7 @@ const UserMenu: React.FC<UserMenuProps> = ({currentUser}) => {
                     {/*Need to give an onclick function later */}
                     <AiOutlineMenu/>
                     <div className="hidden md:block ">
-                        <Avatar/>
+                        <Avatar src={currentUser?.image}/>
                     </div>
                 </div>
             </div>
